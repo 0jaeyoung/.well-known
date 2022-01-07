@@ -1,1 +1,45 @@
-<html><body><h1>It works! jy</h1></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jydev APP</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+      addEventListener('fetch', event => {
+        event.respondWith(handleRequest(event.request))
+      })
+
+      /**
+       * Respond to the request
+       * @param {Request} request
+       */
+      async function handleRequest(request) {
+        return new Response(JSON.stringify(
+        // This is actually your JSON. Because this is JavaScript, you can also add in comments if you like.
+      {
+        "applinks": {
+          "details": [
+            {
+               "appID": "Q94XRK95RT.io.beatscratch.beatscratchFlutterRedux",
+               "paths": [ "/app/", "/app"]
+            }
+          ]
+         }
+      }) + "\n"
+      , {
+        headers: {
+            "content-type": "application/json",
+          },
+        status: 200
+        })
+      }
+    })
+</script>
+</body>
+</html>
